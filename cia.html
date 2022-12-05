@@ -86,16 +86,17 @@
             
 			for (i = 0; i < x.length; i++) { 
 				
-				x[i].parentElement.parentElement.parentElement.parentElement.parentElement.classList.add('showit');
-
-                let fulldata = x[i].parentElement.parentElement.parentElement.parentElement.parentElement.innerHTML
+				let fulldata = x[i].parentElement.parentElement.parentElement.parentElement.parentElement.innerHTML
                 let y= fulldata.indexOf('Hall');
                 let z = fulldata.indexOf('Session');
                 let a = fulldata.indexOf('Date');
-                let HallNo = fulldata[y+7]+fulldata[y+8]+fulldata[y+9]+fulldata[y+10]+fulldata[y+11]+fulldata[y+12];
+                
+				let HallNo = fulldata.substr(y+7,6);
                 let Sessionno = fulldata[z+10];
 
-                let examDate = fulldata[a+7]+fulldata[a+8]+fulldata[a+9]+fulldata[a+10]+fulldata[a+11]+fulldata[a+12]+fulldata[a+13]+fulldata[a+14]+fulldata[a+15]+fulldata[a+16]+fulldata[a+17];
+                
+
+				let examDate = fulldata.substr(a+7,11);
 
                 let rowNumber = x[i].parentElement.rowIndex
                 let rowData = x[i].parentElement.innerHTML;
